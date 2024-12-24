@@ -1,3 +1,4 @@
+import SideNav from "@/app/ui/components/sidenav";
 export default function Layout({
   children,
 }: Readonly<{
@@ -5,8 +6,7 @@ export default function Layout({
 }>) {
   return (
     <>
-      <h1>BlogNext</h1>
-      <hr/>
+      <SideNav />
       <div>{children}</div>
     </>
   );
