@@ -16,7 +16,7 @@ export default function Home() {
               href="/blog/posts" 
               className={`outline outline-1 outline-offset-2 border-purple-700 hover:text-white py-2 px-4 rounded hover:bg-purple-800 md:w-auto ${styles.text_wisteria} ${styles.fit_content}`}
             >
-              Go to Blog
+              Go to Blog!
             </a>
           </div>
           <div className="relative flex justify-center items-center">
