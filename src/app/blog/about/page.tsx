@@ -1,7 +1,7 @@
 export default function Page() {
     return (
       <>
-        <h2>About</h2>
+        <h2  className='text-purple-800'>About</h2>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Neque cum
           soluta eum dolore molestias? Officia molestias doloribus blanditiis.

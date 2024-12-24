@@ -3,7 +3,7 @@ import React from 'react';
 export default function Page() {
   return (
     <div>
-      <h2>Contact</h2>
+      <h2 className='text-purple-800'>Contact</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, architecto natus,
         cumque laborum, error consequuntur eaque expedita numquam eveniet quas sunt
