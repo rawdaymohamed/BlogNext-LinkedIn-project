@@ -15,9 +15,9 @@ export async function POST(request: Request) {
     const title = searchParams.get('title');
     const content = searchParams.get('content');
     const date = searchParams.get('date');
-
+    const author = searchParams.get('author');
     try {
-        await sql`INSERT INTO posts(id, author, title, content, date) VALUES (${id}, 'Rawda', ${title}, ${content}, ${date});`;
+        await sql`INSERT INTO posts(id, author, title, content, date) VALUES (${id}, ${author}, ${title}, ${content}, ${date});`;
 
         return NextResponse.json({ message: "post Successfully added" }, { status: 200 });
     } catch (error) {

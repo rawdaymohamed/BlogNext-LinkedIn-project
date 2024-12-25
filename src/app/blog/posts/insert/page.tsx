@@ -1,8 +1,9 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
-
+import { User } from "@/app/lib/definition";
+import { getSession } from "next-auth/react";
 export default function Page() {
   const router = useRouter();
   const [formData, setFormData] = useState({
@@ -11,6 +12,13 @@ export default function Page() {
     content: "",
     date: new Date().toISOString().slice(0, 10),
   });
+  const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    getSession().then((session) => {
+      setUser((session?.user as User) || null);
+    });
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -26,7 +34,9 @@ export default function Page() {
     e.preventDefault();
     const uuid = uuidv4();
     fetch(
-      `/api/posts?id=${uuid}&title=${formData.title}&content=${formData.content}&date=${formData.date}`,
+      `/api/posts?id=${uuid}&title=${formData.title}&author=${
+        user?.name || "No user"
+      }&content=${formData.content}&date=${formData.date}`,
       {
         method: "POST",
         headers: {

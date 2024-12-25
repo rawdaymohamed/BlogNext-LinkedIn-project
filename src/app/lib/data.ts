@@ -23,7 +23,7 @@ export async function getPosts(): Promise<Post[]> {
         // console.log(data.rows);
         // Validate and map the data to ensure it matches the Post type
         const posts = data.rows.map((row) => ({
-            id: row.id, // Ensure id is a string
+            id: row.id.toString(), // Ensure id is a string
             title: row.title,
             content: row.content,
             date: row.date // Ensure date is a string
