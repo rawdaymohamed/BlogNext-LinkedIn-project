@@ -28,7 +28,7 @@ export async function getPosts(): Promise<Post[]> {
             content: row.content,
             date: row.date // Ensure date is a string
         }));
-
+        // throw Error("Error")
         return posts;
     } catch (error) {
         console.log("Error getting posts", error)
