@@ -1,7 +1,6 @@
 import { createClient, sql } from '@vercel/postgres';
 import { Post } from './definition';
-import { unstable_noStore as noStore } from 'next/cache';
-
+import { unstable_noStore } from 'next/cache';
 export async function connectToDB() {
     const client = createClient();
     await client.connect();
@@ -19,7 +18,7 @@ export async function connectToDB() {
 }
 export async function getPosts(): Promise<Post[]> {
     try {
-        // noStore()
+        unstable_noStore()
         const data = await sql`SELECT * from posts;`
         // console.log(data.rows);
         // Validate and map the data to ensure it matches the Post type
